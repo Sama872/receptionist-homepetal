@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { createBrowserRouter } from "react-router-dom";
+import {RouterProvider} from "react-router-dom";
+import Receptionist from './components/Receptionist/Receptionist';
+import { Toaster } from 'react-hot-toast';
+import Layout from './components/Layout/Layout';
+import UpdateResp from './components/Receptionist/UpdateResp';
 function App() {
+  let routers=createBrowserRouter([{
+    path:'/',element:<Layout/>,children:[
+      {path:'',element:<Receptionist/>},
+      {path:'update',element:<UpdateResp/>},
+      
+    ]
+
+  }])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+       <RouterProvider router={routers}></RouterProvider>
+      <Toaster />
     </div>
   );
 }
