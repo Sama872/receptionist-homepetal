@@ -37,13 +37,13 @@ export default function Receptionist() {
    })
   return (
     <div className='w-50 mx-auto py-4 container'>
-        <h2 className='text-main '>اضافه حاله </h2>
+        <h2 className='text-main text-center'>اضافه حاله </h2>
        <form className='row mx-auto' onSubmit={formik.handleSubmit}>
        <input type='number' id='patientId' name='patientId' className='my-3 input' placeholder='patient Id' onChange={formik.handleChange} onBlur={formik.handleBlur}  value={formik.values.patientId} />
        {formik.errors.patientId&&formik.touched.patientId?<Alert severity="error"> {formik.errors.patientId} </Alert>:''}
         <input type='text' id='hospitalId' name='hospitalId' className='my-3 input' placeholder='hospital Id' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.hospitalId} />
         {formik.errors.hospitalId&&formik.touched.hospitalId?<Alert severity="error"> {formik.errors.hospitalId} </Alert>:''}
-        <select  id='case' name='case' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.case} className='my-2'>
+        <select  id='case' name='case' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.case} className='my-2 input h-25' >
         <option>التشخيص</option>
             <option value="ذبحة صدرية">ذبحة صدرية</option>
             <option value="حوادث">حوادث</option>
@@ -57,14 +57,14 @@ export default function Receptionist() {
             <option value="جلطات">جلطات</option>
         </select>
         {formik.errors.case&&formik.touched.case?<Alert severity="error"> {formik.errors.case} </Alert>:''}
-        <select onChange={formik.handleChange} onBlur={formik.handleBlur} id='state' name='state' value={formik.values.state}>
+        <select onChange={formik.handleChange} onBlur={formik.handleBlur} id='state' name='state' value={formik.values.state} className='input h-25'>
             <option>الحاله</option>
             <option value="Danger">Danger</option>
             <option value="stable">stable</option>
         </select>
         {formik.errors.state&&formik.touched.state?<Alert severity="error"> {formik.errors.state} </Alert>:''}
         <div className='col-4 d-flex justify-content-center align-items-center'>
-          <button className='btn bg-primary my-2 text-light' type='submit'>تاكيد</button>
+          <button className='btn botton my-2 text-light' type='submit'>تاكيد</button>
         </div>
        </form>
 
